@@ -12,8 +12,7 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreText;
     public Text bestScore;
-    public GameObject GameOverText;
-    
+    public GameObject GameOverText;   
     private bool m_Started = false;
     private int m_Points;
     
@@ -55,9 +54,7 @@ public class MainManager : MonoBehaviour
             }
         }
         else if (m_GameOver)
-        {
-            
-            
+        {            
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -76,9 +73,9 @@ public class MainManager : MonoBehaviour
         m_GameOver = true;
         if(DataManager.instance.bestScore < m_Points) {
             DataManager.instance.bestScore = m_Points;
+            DataManager.instance.bestPlayerName = DataManager.instance.playerName;
         }
-        bestScore.text = $"Best score: {DataManager.instance.bestScore}";
+        bestScore.text = $"Best score: {DataManager.instance.bestScore}! Made by {DataManager.instance.bestPlayerName}";
         GameOverText.SetActive(true);
     }
-
 }

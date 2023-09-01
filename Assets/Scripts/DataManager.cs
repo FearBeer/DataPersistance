@@ -8,6 +8,8 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
     public int bestScore;
+    public string playerName;
+    public string bestPlayerName;
 
     private void Awake()
     {
@@ -24,5 +26,7 @@ public class DataManager : MonoBehaviour
     class SaveData
     {
         public int bestScore;
+        public string playerName;
+        public string bestPlayerName;
     }
 }
